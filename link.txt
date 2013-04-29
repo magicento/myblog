@@ -1,0 +1,48 @@
+﻿<a href="http://joomlacoding.googlecode.com/svn/trunk/images/"><img src="http://joomlacoding.googlecode.com/svn/trunk/images/"></a>
+
+http://joomlacoding.googlecode.com/svn/trunk/post/
+http://joomlacoding.googlecode.com/svn/trunk/images/videoimgpost/
+http://joomlacoding.googlecode.com/svn/trunk/movie/
+
+http://joomlacoding.googlecode.com/svn/trunk/files/
+
+http://joomlacoding.googlecode.com/svn/trunk/music/
+<pre class="brush:php">
+
+<div class="task shortcodestyle">
+灰色说明文字
+</div>
+<div class="noway shortcodestyle">
+红色说明文字
+</div>
+<div class="buy shortcodestyle">
+绿色说明文字
+</div>
+
+<table cellspacing="1" cellpadding="2" border="0" bgcolor="#E1E1E1" align="center">
+<div id="mess_box" style="height:1300px; width:580px;overflow-y:auto;overflow-x:hidden;">
+
+<!--sharetoview start-->
+<!--easy2hide start-->
+<p><a href=""><img src="download.gif"></a></p>
+<!--easy2hide end-->
+<!--sharetoview end-->
+
+图片属性：
+class="highslide-image  " 
+data-lightbox="on"    单张图片
+data-lightbox="group:mygroup"  一组图片
+data-lightbox="transitionIn:elastic;transitionOut:elastic;"    效果加强
+参数：titlePosition  float outside  inside   over     标题显示方式
+      transitionIn   fade  elastic  none    		  转场开始
+      transitionOut  fade  elastic  none   			  转场结束
+      overlayShow    true  false            		  叠加设置 
+      width - 设置宽度，单位像素
+	  height - 设置高度，单位像素
+	  padding - 设置内边距，单位像素
+
+014605200787s
+
+您的站点 PRIVATE_KEY 是: c0202725652a695a835b3255d4efa297
+
+您的站点 PUBLIC_KEY 是: 3a6f7f4134bf71b8b172c20e856f0063
