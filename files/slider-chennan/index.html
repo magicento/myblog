@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html> 
+	<head> 
+	<title>News</title> 
+	<script type="text/javascript" src="jq.js"></script>
+	<style type="text/css">
+    @-webkit-keyframes flip {  
+        0% {  
+            -webkit-transform: rotateY(0deg) scale(1,1);  
+            color: white;  
+        }  
+        70% {  
+            -webkit-transform: rotateY(0deg) scale(1,1);  
+            color: white;  
+        }  
+        100% {  
+            -webkit-transform: rotateY(90deg) scale(0.6,0.7);  
+            color: #3C4043;  
+        }  
+    }  
+    @-moz-keyframes flip {  
+        0% {  
+            -moz-transform: rotateY(0deg) scale(1,1);  
+            color: white;  
+        }  
+        70% {  
+            -moz-transform: rotateY(0deg) scale(1,1);  
+            color: white;  
+        }  
+        100% {  
+            -moz-transform: rotateY(90deg) scale(0.6,0.7);  
+            color: #3C4043;  
+        }  
+    }  
+    
+	.clear{
+		clear: both;
+	}
+	.huandengpians{
+		position: relative;
+	}
+	.huandengpian{
+		position: absolute;
+	}
+	.huandengpian img{
+		position: absolute;
+		display: none;
+		top:0;
+		left:0;
+	}
+	.chip{
+		width:60px;
+		height:60px;
+		float: left;
+		background-repeat: no-repeat;
+	}
+	</style>
+	<script type="text/javascript" >
+	window.onload=function(){
+		jQuery(function(){
+			var d=0;
+			var sliders=new Array();
+			$('.huandengpians .huandengpian').each(function(){
+				var self=this;
+				sliders.push(self);
+				d++;
+			});	
+			var v=0;
+			setTimeout(show,600);
+			function show(){
+				var self =sliders[v%d];
+				huandengpian(self);
+				v++;
+				setTimeout(show,3000);
+			}
+			
+			function huandengpian(self){
+				
+				$('.huandengpian').css('z-index','1');
+				if($(self).next('.huandengpian').length){
+					$(self).next('.huandengpian').css('z-index',9);
+					$(self).next('.huandengpian').find('img').show();
+				}else{
+					$(sliders[0]).find('img').show();
+					$(sliders[0]).css('z-index',9);
+				}
+				$('.chip').remove();
+				$(self).find('.clear').remove();
+				$(self).css('z-index','999');
+				var src=$(self).find('img').attr('src');
+				var width=$(self).find('img').width();
+				var height=$(self).find('img').height();
+				var heng = Math.ceil(width/60);		
+				var shu  = Math.ceil(height/60);
+				$(self).css('height',shu*60);
+				$(self).css('width',heng*60);
+				var chipcount=heng*shu;
+				for(i=0;i<chipcount;i++){
+					var chip='<div class="chip chip'+i+'"></div>';
+					$(self).append(chip);
+					$(self).find(".chip"+i).css('background-image','url("'+src+'")');
+					left=-i%heng*60;
+					height=parseInt(i/heng);   
+					height=-height*60;
+					$(self).find(".chip"+i).css('background-position',left+'px '+height+'px');
+					left=i%heng;
+					height=parseInt(i/heng); 				
+					wait=Math.round(Math.sqrt(Math.pow(left,2)+Math.pow(height,2))*10)/10;
+					hide(i,wait);
+				}
+				$(self).find('img').hide();
+				var clear='<div class="clear"></div>';
+				$(self).append(clear);
+				
+				function hide(i,wait){
+					setTimeout(function(){
+						$(self).find(".chip"+i).css('-webkit-animation','flip 1.2s ease-out');
+						$(self).find(".chip"+i).css('-moz-animation','flip 1.2s ease-out');
+						setTimeout(function(){$(self).find(".chip"+i).css('visibility','hidden')},1200)
+					},wait*200);
+				}
+				
+			}
+		});
+	}
+
+	</script>
+	</head>
+	<body>
+		<div class="huandengpians">
+			<div class="huandengpian">
+				<img src="1.jpg"/>
+			</div>
+			<div class="huandengpian">
+				<img src="2.jpg"/>
+			</div>
+			<div class="huandengpian">
+				<img src="3.jpg"/>
+			</div>
+			<div class="huandengpian">
+				<img src="4.jpg"/>
+			</div>
+			<div class="huandengpian">
+				<img src="5.jpg"/>
+			</div>
+			<div class="huandengpian">
+				<img src="6.jpg"/>
+			</div>
+			<div class="huandengpian">
+				<img src="7.jpg"/>
+			</div>
+			<div class="huandengpian">
+				<img src="8.jpg"/>
+			</div>
+			<div class="huandengpian">
+				<img src="9.jpg"/>
+			</div>
+			<div class="huandengpian">
+				<img src="10.jpg"/>
+			</div>
+			<div class="huandengpian">
+				<img src="11.jpg"/>
+			</div>
+		</div>
+	</body>
+</html>
